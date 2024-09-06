@@ -1,0 +1,51 @@
+-- Create the database and switch to it
+CREATE DATABASE hospital4;
+USE hospital4;
+
+-- Create the user14 table
+CREATE TABLE user4(
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    f_name VARCHAR(50),
+    l_name VARCHAR(50),
+    email VARCHAR(100) UNIQUE,
+    role ENUM('Doctor', 'Patient', 'ADMIN'),
+    phone VARCHAR(15),
+    password VARCHAR(100)
+);
+
+-- Create the record14 table
+CREATE TABLE record4 (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    p_name VARCHAR(50),
+    p_id INT,
+    issue TEXT,
+    d_name VARCHAR(50),
+    d_id INT,
+    medicine TEXT,
+    description TEXT,
+    solution TEXT
+);
+
+-- Insert sample data into the user14 table
+INSERT INTO user4 (id,f_name, l_name, email, role, phone, password) VALUES
+(2,'Hareesha', 'Yadav', 'nhareesha1@gmail.com', 'Doctor', '1234567890', 'haree'),
+(3,'Indu', 'Sree', 'indusri24@gmail.com', 'Patient', '0987654321', 'indu'),
+(4,'Sweety', 'Priya', 'Sweety341@gmail.com', 'ADMIN', '1122334455', 'priya'),
+(5,'Sruthi', 'Sharma', 'sruthi231@gmail.com', 'Patient', '987654321', 'sruthi'),
+(6,'meghana','reddy','meghana122gmail.com','Doctor','2345678901','megh'),
+(7,'ramesh','naidu','ramesh@gmail.com','Doctor','9345678978','naidu');
+
+-- Insert sample data into the record2 table
+-- Assuming you are working with the correct table name record14
+INSERT INTO record4(p_name, p_id, issue, d_name, d_id, medicine, description, solution) VALUES
+('Indu', 2, 'Headache', 'Hareesha Yadav', 1, 'Paracetamol', 'Patient has frequent headaches', 'Take medication twice a day for a week'),
+('Sruthi', 5, 'Chest pain', NULL, NULL, NULL, NULL, NULL);
+
+-- Check tables
+SHOW TABLES;
+
+-- Check records in the user14 table
+SELECT * FROM user4;
+
+-- Check records in the record14 table
+SELECT * FROM record4;
